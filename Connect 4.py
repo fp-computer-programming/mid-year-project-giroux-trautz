@@ -43,7 +43,7 @@ score_y = [0]
 score_r = [0]
 first_game = [1]
 
-board = [[0 for x in range(7)] for x in range(6)]
+board = [[0 for _ in range(7)] for _ in range(6)]
 
 def clear_board():
     for x in range(6):
@@ -185,7 +185,7 @@ def start_screen():
     screen.blit(yellow, (50,590))
     screen.blit(red, (440,590))
     screen.blit(instructions1 , (420 - instructions1.get_rect()[2] // 2, 250))
-    screen.blit(instructions2 , (420 - instructions2.get_rect()[2] // 2,300))
+    screen.blit(instructions2 , (420 - instructions2.get_rect()[2] // 2, 300))
     screen.blit(instructions3 , (420 - instructions3.get_rect()[2] // 2, 350))
     screen.blit(instructions4 , (420 - instructions4.get_rect()[2] // 2, 400))
     screen.blit(start_text, (420 - start_text.get_rect()[2] // 2, 500))
@@ -258,7 +258,6 @@ while True:
                             if check_for_win() == -1:
                                 score_r[0] += 1 
         if event.type == pygame.MOUSEBUTTONUP:
-            print(mouse)
             if state[0] == 0:
                 if (((mouse[0] - 150) ** 2) + ((mouse[1] - 690) ** 2)) ** .5 <= 100 or (((mouse[0] - 300) ** 2) + ((mouse[1] - 690) ** 2)) ** .5 <= 100 or 150 <= mouse[0] <= 300 and 590 <= mouse[1] <= 790:
                     team[0] = 1
